@@ -28,8 +28,8 @@ pip install -r requirements.txt
  
 jupyter lab
 ```
- 
-Open `car_price.ipynb` and run the cells from top to bottom.
+
+# Open notebook/car_price.ipynb and run the cells from top to bottom
  
 ## Cleaning Decisions
  
