@@ -40,9 +40,26 @@ A few cleaning steps in this project involved judgment calls, not just routine f
 - **Missing `priceperkm` values** were dropped, not imputed. Verification showed 2,454 of 2,459 missing values belonged to New cars (which don't carry this field) and only 5 belonged to Used cars. Since this analysis is scoped to older/used cars, dropping these rows removes New cars (out of scope) and a small number of incomplete Used records.
 - **`options`** was intentionally left untouched in this pass — it's a free-text, comma-separated column with potential for future feature engineering (e.g. does having Navigation or Bluetooth affect price), but parsing it was out of scope for initial cleaning.
 - **Binary categorical columns** (`accidenthistory`, `insurance`, `registrationstatus`) were converted to proper booleans for easier filtering and analysis.
+
 ## Status
- 
-Currently complete: data loading, structural inspection, cleaning, and scoping. Next: exploratory analysis and visualization (price by brand, mileage vs. price, accident history impact, etc.).
+
+Complete: data loading, cleaning, scoping, univariate analysis, 
+bivariate and multivariate analysis, correlation analysis, 
+and key findings summary
+
+## Key Findings
+- Mileage and car age are the strongest negative price predictors 
+  (correlation -0.58 each), both acting as price ceilings
+- Horsepower acts as a price floor — low HP limits price downward, 
+  but high HP alone doesn't guarantee high price
+- Accident history significantly reduces price; luxury-tier cars 
+  (above ~$95,000) almost never carry accident history
+- Brand shows a clear two-tier market: Porsche/Mercedes-Benz/Audi/BMW 
+  medians above 16,000 USD vs mainstream brands under 8,000 USD
+- Insurance and transmission have negligible effect on price and 
+  can be safely excluded as predictors in future ML work
+- Enginesize and torque correlate at 0.97 — essentially redundant 
+  features for ML modeling
  
 ## Tools
  
